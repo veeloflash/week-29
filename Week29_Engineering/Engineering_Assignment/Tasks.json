@@ -1,0 +1,183 @@
+{
+  "★ 1. Multi-hop Retrieval": {
+    "Policy Change Investigation": [
+      "Task: Decompose the question into dependent sub-questions.",
+      "Task: Design at least three retrieval hops.",
+      "Task: Record the intermediate fact produced by each hop.",
+      "Task: Detect which policy version is current.",
+      "Task: Build an evidence chain from the final answer back to sources.",
+      "Task: Define a stopping condition.",
+      "Task: Explain one failure caused by a wrong Hop 1 result."
+    ],
+    "Multi-hop vs Single-hop": [
+      "Task: Explain why the approaches are different.",
+      "Task: Construct a question that requires a dependent second hop.",
+      "Task: Compare expected failure modes and cost."
+    ]
+  },
+  "★ 2. Knowledge Update": {
+    "Living Knowledge Base": [
+      "Task: Design document metadata including id, version, effective date, source, status, and checksum concept.",
+      "Task: Create an update flow.",
+      "Task: Define superseded and current states.",
+      "Task: Implement a small Python version registry.",
+      "Task: Create five regression questions.",
+      "Task: Simulate one bad update and rollback.",
+      "Task: Explain how stale retrieval would be detected."
+    ],
+    "Knowledge Update Audit": [
+      "Task: Trace ingestion → index → retrieval → generation.",
+      "Task: Identify at least five stale-data failure points.",
+      "Task: Create a minimal reproduction.",
+      "Task: Propose and test one fix.",
+      "Task: Add a regression test."
+    ]
+  },
+  "★ 3. Workflow Design": {
+    "Research Approval Workflow": [
+      "Task: Define at least seven stages.",
+      "Task: Specify input and output for each stage.",
+      "Task: Identify deterministic and LLM-based stages.",
+      "Task: Add two retry paths and one terminal failure.",
+      "Task: Add one human approval gate.",
+      "Task: Define checkpoint data.",
+      "Task: Draw the workflow diagram."
+    ]
+  },
+  "★ 4. State Machine": {
+    "Knowledge Workflow State Machine": [
+      "Task: Define at least eight states.",
+      "Task: Draw a transition table.",
+      "Task: Implement the state machine directly in Python.",
+      "Task: Create at least two guard conditions.",
+      "Task: Create COMPLETE, FAILED, and REJECTED terminal states.",
+      "Task: Persist and reload state.",
+      "Task: Test an illegal transition.",
+      "Task: Explain how a graph or workflow library could represent the same logic later."
+    ],
+    "State Machine Engine": [
+      "Task: Define states and a transition table.",
+      "Task: Validate transitions.",
+      "Task: Add guards and terminal states.",
+      "Task: Persist and reload state.",
+      "Task: Test illegal transitions."
+    ]
+  },
+  "★ 5. Human-in-the-loop": {
+    "Human Approval Gate": [
+      "Task: Define the escalation rule.",
+      "Task: Conceptually design the review screen and data fields.",
+      "Task: Implement approve, edit, and reject decisions.",
+      "Task: Persist reviewer identity or test reviewer id, decision, and reason.",
+      "Task: Resume the workflow after approval or edit.",
+      "Task: Ensure rejection cannot transition to publish.",
+      "Task: Create an audit record."
+    ],
+    "HITL Gate": [
+      "Task: Pause at WAITING_APPROVAL.",
+      "Task: Support approve, edit, and reject decisions.",
+      "Task: Record reviewer decisions.",
+      "Task: Resume from a checkpoint.",
+      "Task: Prevent approval bypass."
+    ]
+  },
+  "★ 6. Real Client Tasks": {
+    "Stateful Enterprise Knowledge Workflow": [
+      "Task: Create a requirement summary.",
+      "Task: Design the multi-hop retrieval plan.",
+      "Task: Design knowledge freshness and version rules.",
+      "Task: Draw the state machine.",
+      "Task: Implement a resumable prototype.",
+      "Task: Add human approval.",
+      "Task: Log retrieval hops and state transitions.",
+      "Task: Create at least 10 workflow test cases.",
+      "Task: Write limitations and failure modes."
+    ],
+    "Approval Bypass & State Tampering": [
+      "Task: Attempt to modify saved state from WAITING_APPROVAL directly to COMPLETE or PUBLISH.",
+      "Task: Attempt to replay an old approval record.",
+      "Task: Enforce transitions in backend logic.",
+      "Task: Validate authorization.",
+      "Task: Bind approvals to workflow id and approved content or version.",
+      "Task: Reject stale or replayed approvals.",
+      "Task: Record actor, timestamp, previous state, next state, and reason.",
+      "Task: Prevent retrieved document text from changing workflow control state."
+    ]
+  },
+  "★ 7. Engineering Implementation": {
+    "Multi-hop Retriever": [
+      "Task: Accept a complex question.",
+      "Task: Decompose it into at least two dependent hops.",
+      "Task: Store intermediate facts and evidence ids.",
+      "Task: Stop using explicit conditions.",
+      "Task: Output an evidence chain."
+    ],
+    "Knowledge Version Registry": [
+      "Task: Store document id, version, effective date, status, and source.",
+      "Task: Mark superseded and current versions.",
+      "Task: Query the current version.",
+      "Task: Simulate update and rollback.",
+      "Task: Write tests."
+    ],
+    "Workflow Trace": [
+      "Task: Log retrieval hops, state, transitions, reasons, and timestamps.",
+      "Task: Produce a human-readable trace.",
+      "Task: Use the trace to diagnose at least two failures."
+    ]
+  },
+  "★ 8. Product A — Knowledge Workflow Assistant": {
+    "Required Capabilities": [
+      "Task: Accept at least one complex question class requiring multiple evidence steps.",
+      "Task: Implement explicit query decomposition.",
+      "Task: Include at least two dependent retrieval hops.",
+      "Task: Provide evidence provenance for intermediate and final claims.",
+      "Task: Include knowledge version and freshness metadata.",
+      "Task: Implement conflict detection or conflict handling.",
+      "Task: Implement an explicit state machine with at least eight states.",
+      "Task: Implement persistent checkpoint and resume.",
+      "Task: Implement human approval, edit, and reject gates.",
+      "Task: Provide transition and retrieval traces.",
+      "Task: Create at least 12 test cases covering happy path, stale knowledge, conflict, retrieval failure, human rejection, retry, and illegal transition.",
+      "Task: Write a README with architecture, state, evidence-flow diagrams, security analysis, and limitations."
+    ]
+  },
+  "★ 9. Product B — Enterprise Knowledge Workflow Prototype": {
+    "Deliverables": [
+      "Task: Create a client requirement summary and scope.",
+      "Task: Create a knowledge-source inventory.",
+      "Task: Define the update and version policy.",
+      "Task: Design a multi-hop retrieval workflow.",
+      "Task: Draw a state-machine diagram.",
+      "Task: Define an HITL approval policy.",
+      "Task: Define an audit and trace format.",
+      "Task: Perform a security threat analysis.",
+      "Task: Create a test and evaluation set.",
+      "Task: Implement one end-to-end scenario.",
+      "Task: Write failure analysis and an improvement report.",
+      "Task: Provide a README and screenshots or trace evidence."
+    ]
+  },
+  "★ 10. Reverse Engineering": {
+    "Framework Reconstruction": [
+      "Task: Inspect a public workflow or agent framework example.",
+      "Task: Reconstruct the underlying framework-independent state machine.",
+      "Task: Identify generic computer-science concepts and library-specific conveniences.",
+      "Task: Do not copy the example as the submission."
+    ]
+  },
+  "★ 11. Reflections": {
+    "Academic Reflection": [
+      "Task: Explain why multi-hop retrieval is more than retrieving more chunks.",
+      "Task: Explain how an incorrect intermediate fact contaminates later hops.",
+      "Task: Explain why a state machine is useful for AI workflows.",
+      "Task: Explain when a deterministic rule should replace an LLM decision.",
+      "Task: Explain how knowledge freshness changes the meaning of relevant retrieval."
+    ],
+    "Professional Reflection": [
+      "Task: Identify a workflow step that must never publish automatically in a high-impact system.",
+      "Task: Explain how to prove that the system used the current policy version.",
+      "Task: Identify evidence needed to debug a workflow that stopped halfway.",
+      "Task: Explain how to reduce human-review fatigue without removing necessary control."
+    ]
+  }
+}

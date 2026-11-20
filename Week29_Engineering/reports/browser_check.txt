@@ -1,0 +1,7 @@
+Browser verification passed on 20 November 2026.
+- Created a three-hop question and reached WAITING_APPROVAL.
+- Confirmed the manager cannot approve the 1,500 EUR expense under current policy.
+- Blocked approval with a user token.
+- Approved with the reviewer token.
+- Resumed to COMPLETE and displayed the published answer.
+- No JavaScript page errors were observed.

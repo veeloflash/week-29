@@ -1,0 +1,884 @@
+{
+  "happy_path": {
+    "approval": {
+      "binding": "506d269b36ce34721474d676c2ccba988aaf877b0c0b93e96d4443f0b50f96ee",
+      "decision": "approve",
+      "id": "690705c759b7430f98c64d2278d9e09a",
+      "reason": "Checked HR role, current limit and expense.",
+      "reviewer": "reviewer-1",
+      "timestamp": "2026-11-20T19:51:21.024392+00:00",
+      "workflow_id": "bf311810d33f4e56943c22678122bf5a"
+    },
+    "as_of": "2026-11-20",
+    "audit": [
+      {
+        "actor": "user",
+        "event": "create",
+        "next_state": "NEW",
+        "previous_state": "NEW",
+        "reason": "Workflow created.",
+        "timestamp": "2026-11-20T19:51:21.009395+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "VALIDATING",
+        "previous_state": "NEW",
+        "reason": "Validate supported question.",
+        "timestamp": "2026-11-20T19:51:21.015789+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "VALIDATING",
+        "previous_state": "VALIDATING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.015789+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "PLANNING",
+        "previous_state": "VALIDATING",
+        "reason": "Supported employee/expense question.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.508,
+        "event": "duration",
+        "next_state": "PLANNING",
+        "previous_state": "PLANNING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "HOP1",
+        "previous_state": "PLANNING",
+        "reason": "Three dependent evidence steps planned.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "HOP1",
+        "previous_state": "HOP1",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "retrieval",
+        "hop": {
+          "depends_on": [],
+          "evidence": {
+            "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+            "document_id": "employees",
+            "effective_date": "2026-01-01",
+            "entity": "Employee A",
+            "excerpt": {
+              "department": "operations",
+              "role": "manager"
+            },
+            "retrieved_at": "2026-11-20T19:51:21.016297+00:00",
+            "source": "HR employee directory",
+            "version": 1
+          },
+          "fact": {
+            "department": "operations",
+            "role": "manager"
+          },
+          "hop": 1,
+          "query": "Employee A"
+        },
+        "next_state": "HOP1",
+        "previous_state": "HOP1",
+        "reason": "HOP1 produced a supported intermediate fact.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "HOP2",
+        "previous_state": "HOP1",
+        "reason": "Evidence recorded.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "HOP2",
+        "previous_state": "HOP2",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.016297+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "retrieval",
+        "hop": {
+          "depends_on": [
+            1
+          ],
+          "evidence": {
+            "checksum": "c985c5ae9d4420a33ec7e93837d4b932d3530e6c221a70ae22321d0a31b88bc0",
+            "document_id": "approval-policy",
+            "effective_date": "2026-11-01",
+            "entity": "manager",
+            "excerpt": {
+              "currency": "EUR",
+              "limits": {
+                "analyst": 0,
+                "director": 5000,
+                "manager": 1000
+              }
+            },
+            "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+            "source": "Finance approved policy register",
+            "version": 2
+          },
+          "fact": {
+            "currency": "EUR",
+            "limit": 1000
+          },
+          "hop": 2,
+          "query": "Current approval policy for manager"
+        },
+        "next_state": "HOP2",
+        "previous_state": "HOP2",
+        "reason": "HOP2 produced a supported intermediate fact.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "HOP3",
+        "previous_state": "HOP2",
+        "reason": "Evidence recorded.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 1.537,
+        "event": "duration",
+        "next_state": "HOP3",
+        "previous_state": "HOP3",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "retrieval",
+        "hop": {
+          "depends_on": [
+            1,
+            2
+          ],
+          "evidence": {
+            "checksum": "44aa2763377ae50a19612db9bb5b1d6f9667521615b228389ecccee2cf2bb51a",
+            "document_id": "expenses",
+            "effective_date": "2026-01-01",
+            "entity": "Expense X",
+            "excerpt": {
+              "amount": 1500,
+              "category": "travel",
+              "currency": "EUR"
+            },
+            "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+            "source": "Finance expense ledger",
+            "version": 1
+          },
+          "fact": {
+            "amount": 1500,
+            "category": "travel",
+            "currency": "EUR",
+            "eligible": false
+          },
+          "hop": 3,
+          "query": "Expense X compared with manager limit 1000"
+        },
+        "next_state": "HOP3",
+        "previous_state": "HOP3",
+        "reason": "HOP3 produced a supported intermediate fact.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "VERIFYING",
+        "previous_state": "HOP3",
+        "reason": "Evidence recorded.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "VERIFYING",
+        "previous_state": "VERIFYING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "DRAFTING",
+        "previous_state": "VERIFYING",
+        "reason": "All three hops have evidence.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "DRAFTING",
+        "previous_state": "DRAFTING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "WAITING_APPROVAL",
+        "previous_state": "DRAFTING",
+        "reason": "Expense authorization requires human review.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "WAITING_APPROVAL",
+        "previous_state": "WAITING_APPROVAL",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.017834+00:00"
+      },
+      {
+        "actor": "reviewer-1",
+        "decision": "approve",
+        "event": "review",
+        "next_state": "WAITING_APPROVAL",
+        "previous_state": "WAITING_APPROVAL",
+        "reason": "Checked HR role, current limit and expense.",
+        "timestamp": "2026-11-20T19:51:21.024392+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "APPROVED",
+        "previous_state": "WAITING_APPROVAL",
+        "reason": "Checked HR role, current limit and expense.",
+        "timestamp": "2026-11-20T19:51:21.024392+00:00"
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.030480+00:00",
+        "event": "transition",
+        "previous_state": "APPROVED",
+        "next_state": "PUBLISHING",
+        "reason": "Current content-bound approval verified."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.030480+00:00",
+        "event": "duration",
+        "previous_state": "PUBLISHING",
+        "next_state": "PUBLISHING",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.030480+00:00",
+        "event": "transition",
+        "previous_state": "PUBLISHING",
+        "next_state": "COMPLETE",
+        "reason": "Publish recorded once in this checkpoint."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.030480+00:00",
+        "event": "duration",
+        "previous_state": "COMPLETE",
+        "next_state": "COMPLETE",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      }
+    ],
+    "created_at": "2026-11-20T19:51:21.009395+00:00",
+    "created_by": "user",
+    "draft": "Employee A cannot approve Expense X. The employee's role is manager [1]. The current limit is 1000 EUR [2]. The expense is 1500 EUR [3].",
+    "employee": "Employee A",
+    "error": null,
+    "expense": "Expense X",
+    "facts": {
+      "amount": 1500,
+      "category": "travel",
+      "currency": "EUR",
+      "department": "operations",
+      "eligible": false,
+      "limit": 1000,
+      "role": "manager"
+    },
+    "hops": [
+      {
+        "depends_on": [],
+        "evidence": {
+          "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+          "document_id": "employees",
+          "effective_date": "2026-01-01",
+          "entity": "Employee A",
+          "excerpt": {
+            "department": "operations",
+            "role": "manager"
+          },
+          "retrieved_at": "2026-11-20T19:51:21.016297+00:00",
+          "source": "HR employee directory",
+          "version": 1
+        },
+        "fact": {
+          "department": "operations",
+          "role": "manager"
+        },
+        "hop": 1,
+        "query": "Employee A"
+      },
+      {
+        "depends_on": [
+          1
+        ],
+        "evidence": {
+          "checksum": "c985c5ae9d4420a33ec7e93837d4b932d3530e6c221a70ae22321d0a31b88bc0",
+          "document_id": "approval-policy",
+          "effective_date": "2026-11-01",
+          "entity": "manager",
+          "excerpt": {
+            "currency": "EUR",
+            "limits": {
+              "analyst": 0,
+              "director": 5000,
+              "manager": 1000
+            }
+          },
+          "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+          "source": "Finance approved policy register",
+          "version": 2
+        },
+        "fact": {
+          "currency": "EUR",
+          "limit": 1000
+        },
+        "hop": 2,
+        "query": "Current approval policy for manager"
+      },
+      {
+        "depends_on": [
+          1,
+          2
+        ],
+        "evidence": {
+          "checksum": "44aa2763377ae50a19612db9bb5b1d6f9667521615b228389ecccee2cf2bb51a",
+          "document_id": "expenses",
+          "effective_date": "2026-01-01",
+          "entity": "Expense X",
+          "excerpt": {
+            "amount": 1500,
+            "category": "travel",
+            "currency": "EUR"
+          },
+          "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+          "source": "Finance expense ledger",
+          "version": 1
+        },
+        "fact": {
+          "amount": 1500,
+          "category": "travel",
+          "currency": "EUR",
+          "eligible": false
+        },
+        "hop": 3,
+        "query": "Expense X compared with manager limit 1000"
+      }
+    ],
+    "id": "bf311810d33f4e56943c22678122bf5a",
+    "plan": [
+      {
+        "depends_on": [],
+        "hop": 1,
+        "question": "What is Employee A's role?"
+      },
+      {
+        "depends_on": [
+          1
+        ],
+        "hop": 2,
+        "question": "Use that role to retrieve its current approval limit."
+      },
+      {
+        "depends_on": [
+          1,
+          2
+        ],
+        "hop": 3,
+        "question": "Retrieve the expense and compare its amount and currency with that limit."
+      }
+    ],
+    "question": "Can Employee A approve Expense X under the current policy?",
+    "retries": {},
+    "review_binding": "506d269b36ce34721474d676c2ccba988aaf877b0c0b93e96d4443f0b50f96ee",
+    "revision": 4,
+    "snapshot": "59a629f80562cd263ca4d4315363733a8c352d5ea5b80bab922bd14c293edfad",
+    "state": "COMPLETE",
+    "published": {
+      "content": "Employee A cannot approve Expense X. The employee's role is manager [1]. The current limit is 1000 EUR [2]. The expense is 1500 EUR [3].",
+      "at": "2026-11-20T19:51:21.030480+00:00",
+      "approval_id": "690705c759b7430f98c64d2278d9e09a",
+      "evidence": [
+        {
+          "depends_on": [],
+          "evidence": {
+            "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+            "document_id": "employees",
+            "effective_date": "2026-01-01",
+            "entity": "Employee A",
+            "excerpt": {
+              "department": "operations",
+              "role": "manager"
+            },
+            "retrieved_at": "2026-11-20T19:51:21.016297+00:00",
+            "source": "HR employee directory",
+            "version": 1
+          },
+          "fact": {
+            "department": "operations",
+            "role": "manager"
+          },
+          "hop": 1,
+          "query": "Employee A"
+        },
+        {
+          "depends_on": [
+            1
+          ],
+          "evidence": {
+            "checksum": "c985c5ae9d4420a33ec7e93837d4b932d3530e6c221a70ae22321d0a31b88bc0",
+            "document_id": "approval-policy",
+            "effective_date": "2026-11-01",
+            "entity": "manager",
+            "excerpt": {
+              "currency": "EUR",
+              "limits": {
+                "analyst": 0,
+                "director": 5000,
+                "manager": 1000
+              }
+            },
+            "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+            "source": "Finance approved policy register",
+            "version": 2
+          },
+          "fact": {
+            "currency": "EUR",
+            "limit": 1000
+          },
+          "hop": 2,
+          "query": "Current approval policy for manager"
+        },
+        {
+          "depends_on": [
+            1,
+            2
+          ],
+          "evidence": {
+            "checksum": "44aa2763377ae50a19612db9bb5b1d6f9667521615b228389ecccee2cf2bb51a",
+            "document_id": "expenses",
+            "effective_date": "2026-01-01",
+            "entity": "Expense X",
+            "excerpt": {
+              "amount": 1500,
+              "category": "travel",
+              "currency": "EUR"
+            },
+            "retrieved_at": "2026-11-20T19:51:21.017834+00:00",
+            "source": "Finance expense ledger",
+            "version": 1
+          },
+          "fact": {
+            "amount": 1500,
+            "category": "travel",
+            "currency": "EUR",
+            "eligible": false
+          },
+          "hop": 3,
+          "query": "Expense X compared with manager limit 1000"
+        }
+      ]
+    }
+  },
+  "missing_employee": {
+    "approval": null,
+    "as_of": "2026-11-20",
+    "audit": [
+      {
+        "actor": "user",
+        "event": "create",
+        "next_state": "NEW",
+        "previous_state": "NEW",
+        "reason": "Workflow created.",
+        "timestamp": "2026-11-20T19:51:21.036316+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "VALIDATING",
+        "previous_state": "NEW",
+        "reason": "Validate supported question.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "VALIDATING",
+        "previous_state": "VALIDATING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "PLANNING",
+        "previous_state": "VALIDATING",
+        "reason": "Supported employee/expense question.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "PLANNING",
+        "previous_state": "PLANNING",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "HOP1",
+        "previous_state": "PLANNING",
+        "reason": "Three dependent evidence steps planned.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "HOP1",
+        "previous_state": "HOP1",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "RETRY_RETRIEVAL",
+        "previous_state": "HOP1",
+        "reason": "No employees evidence for Employee Unknown.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "RETRY_RETRIEVAL",
+        "previous_state": "RETRY_RETRIEVAL",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.039518+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "HOP1",
+        "previous_state": "RETRY_RETRIEVAL",
+        "reason": "Resume bounded retry.",
+        "timestamp": "2026-11-20T19:51:21.046893+00:00"
+      },
+      {
+        "actor": "system",
+        "event": "transition",
+        "next_state": "RETRY_RETRIEVAL",
+        "previous_state": "HOP1",
+        "reason": "No employees evidence for Employee Unknown.",
+        "timestamp": "2026-11-20T19:51:21.046893+00:00"
+      },
+      {
+        "actor": "user",
+        "duration_ms": 0.0,
+        "event": "duration",
+        "next_state": "RETRY_RETRIEVAL",
+        "previous_state": "RETRY_RETRIEVAL",
+        "reason": "Step completed.",
+        "timestamp": "2026-11-20T19:51:21.046893+00:00"
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.052117+00:00",
+        "event": "transition",
+        "previous_state": "RETRY_RETRIEVAL",
+        "next_state": "HOP1",
+        "reason": "Resume bounded retry."
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.052117+00:00",
+        "event": "transition",
+        "previous_state": "HOP1",
+        "next_state": "FAILED",
+        "reason": "No employees evidence for Employee Unknown."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.052117+00:00",
+        "event": "duration",
+        "previous_state": "FAILED",
+        "next_state": "FAILED",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      }
+    ],
+    "created_at": "2026-11-20T19:51:21.036316+00:00",
+    "created_by": "user",
+    "draft": "",
+    "employee": "Employee Unknown",
+    "error": "No employees evidence for Employee Unknown.",
+    "expense": "Expense X",
+    "facts": {},
+    "hops": [],
+    "id": "6d5c687037c84c4282fc33329b7de988",
+    "plan": [
+      {
+        "depends_on": [],
+        "hop": 1,
+        "question": "What is Employee Unknown's role?"
+      },
+      {
+        "depends_on": [
+          1
+        ],
+        "hop": 2,
+        "question": "Use that role to retrieve its current approval limit."
+      },
+      {
+        "depends_on": [
+          1,
+          2
+        ],
+        "hop": 3,
+        "question": "Retrieve the expense and compare its amount and currency with that limit."
+      }
+    ],
+    "question": "Can Employee Unknown approve Expense X under the current policy?",
+    "retries": {
+      "HOP1": 3
+    },
+    "retry_state": "HOP1",
+    "revision": 4,
+    "snapshot": "59a629f80562cd263ca4d4315363733a8c352d5ea5b80bab922bd14c293edfad",
+    "state": "FAILED"
+  },
+  "conflicting_policy": {
+    "approval": null,
+    "audit": [
+      {
+        "actor": "user",
+        "event": "create",
+        "next_state": "NEW",
+        "previous_state": "NEW",
+        "reason": "Workflow created.",
+        "timestamp": "2026-11-20T19:51:21.059634+00:00"
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "transition",
+        "previous_state": "NEW",
+        "next_state": "VALIDATING",
+        "reason": "Validate supported question."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "duration",
+        "previous_state": "VALIDATING",
+        "next_state": "VALIDATING",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "transition",
+        "previous_state": "VALIDATING",
+        "next_state": "PLANNING",
+        "reason": "Supported employee/expense question."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "duration",
+        "previous_state": "PLANNING",
+        "next_state": "PLANNING",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "transition",
+        "previous_state": "PLANNING",
+        "next_state": "HOP1",
+        "reason": "Three dependent evidence steps planned."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "duration",
+        "previous_state": "HOP1",
+        "next_state": "HOP1",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "retrieval",
+        "previous_state": "HOP1",
+        "next_state": "HOP1",
+        "reason": "HOP1 produced a supported intermediate fact.",
+        "hop": {
+          "hop": 1,
+          "query": "Employee A",
+          "fact": {
+            "role": "manager",
+            "department": "operations"
+          },
+          "depends_on": [],
+          "evidence": {
+            "document_id": "employees",
+            "version": 1,
+            "source": "HR employee directory",
+            "effective_date": "2026-01-01",
+            "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+            "retrieved_at": "2026-11-20T19:51:21.062450+00:00",
+            "entity": "Employee A",
+            "excerpt": {
+              "department": "operations",
+              "role": "manager"
+            }
+          }
+        }
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "transition",
+        "previous_state": "HOP1",
+        "next_state": "HOP2",
+        "reason": "Evidence recorded."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "duration",
+        "previous_state": "HOP2",
+        "next_state": "HOP2",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      },
+      {
+        "actor": "system",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "transition",
+        "previous_state": "HOP2",
+        "next_state": "CONFLICT",
+        "reason": "Current authoritative policy sources disagree for manager."
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-11-20T19:51:21.062450+00:00",
+        "event": "duration",
+        "previous_state": "CONFLICT",
+        "next_state": "CONFLICT",
+        "reason": "Step completed.",
+        "duration_ms": 0.0
+      }
+    ],
+    "created_at": "2026-11-20T19:51:21.059634+00:00",
+    "created_by": "user",
+    "draft": "",
+    "error": "Current authoritative policy sources disagree for manager.",
+    "facts": {
+      "role": "manager",
+      "department": "operations"
+    },
+    "hops": [
+      {
+        "hop": 1,
+        "query": "Employee A",
+        "fact": {
+          "role": "manager",
+          "department": "operations"
+        },
+        "depends_on": [],
+        "evidence": {
+          "document_id": "employees",
+          "version": 1,
+          "source": "HR employee directory",
+          "effective_date": "2026-01-01",
+          "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+          "retrieved_at": "2026-11-20T19:51:21.062450+00:00",
+          "entity": "Employee A",
+          "excerpt": {
+            "department": "operations",
+            "role": "manager"
+          }
+        }
+      }
+    ],
+    "id": "56e16e4c95154ab1ab1491ef2a1c8da9",
+    "plan": [
+      {
+        "hop": 1,
+        "question": "What is Employee A's role?",
+        "depends_on": []
+      },
+      {
+        "hop": 2,
+        "question": "Use that role to retrieve its current approval limit.",
+        "depends_on": [
+          1
+        ]
+      },
+      {
+        "hop": 3,
+        "question": "Retrieve the expense and compare its amount and currency with that limit.",
+        "depends_on": [
+          1,
+          2
+        ]
+      }
+    ],
+    "question": "Can Employee A approve Expense X under the current policy?",
+    "retries": {},
+    "revision": 2,
+    "snapshot": "abcb6e5c66dd58043c6d0d97a76fad7a909701e97ea9a7b50d327602a7d0f698",
+    "state": "CONFLICT",
+    "employee": "Employee A",
+    "expense": "Expense X",
+    "as_of": "2026-11-20"
+  }
+}

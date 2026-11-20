@@ -1,0 +1,28 @@
+test_bad_update_and_rollback (test_workflow.WorkflowTests.test_bad_update_and_rollback) ... ok
+test_conflict_and_recovery (test_workflow.WorkflowTests.test_conflict_and_recovery) ... ok
+test_cross_workflow_approval (test_workflow.WorkflowTests.test_cross_workflow_approval) ... ok
+test_current_version_changes_verdict (test_workflow.WorkflowTests.test_current_version_changes_verdict) ... ok
+test_document_tampering (test_workflow.WorkflowTests.test_document_tampering) ... ok
+test_draft_retry_recovers (test_workflow.WorkflowTests.test_draft_retry_recovers) ... ok
+test_duplicate_resume_idempotent (test_workflow.WorkflowTests.test_duplicate_resume_idempotent) ... ok
+test_five_regression_questions (test_workflow.WorkflowTests.test_five_regression_questions) ... ok
+test_future_version_not_used (test_workflow.WorkflowTests.test_future_version_not_used) ... ok
+test_happy_path_three_hops (test_workflow.WorkflowTests.test_happy_path_three_hops) ... ok
+test_human_edit_recorded (test_workflow.WorkflowTests.test_human_edit_recorded) ... ok
+test_human_rejection_terminal (test_workflow.WorkflowTests.test_human_rejection_terminal) ... ok
+test_illegal_transition (test_workflow.WorkflowTests.test_illegal_transition) ... ok
+test_injection_does_not_execute (test_workflow.WorkflowTests.test_injection_does_not_execute) ... ok
+test_missing_retrieval_retries_and_failure (test_workflow.WorkflowTests.test_missing_retrieval_retries_and_failure) ... ok
+test_partial_checkpoint_stale_restart (test_workflow.WorkflowTests.test_partial_checkpoint_stale_restart) ... ok
+test_replay_approval (test_workflow.WorkflowTests.test_replay_approval) ... ok
+test_restart_checkpoint (test_workflow.WorkflowTests.test_restart_checkpoint) ... ok
+test_state_tampering (test_workflow.WorkflowTests.test_state_tampering) ... ok
+test_unauthorized_reviewer (test_workflow.WorkflowTests.test_unauthorized_reviewer) ... ok
+test_update_auth_and_schema (test_workflow.WorkflowTests.test_update_auth_and_schema) ... ok
+test_update_invalidates_approved_review (test_workflow.WorkflowTests.test_update_invalidates_approved_review) ... ok
+test_update_invalidates_pending_review (test_workflow.WorkflowTests.test_update_invalidates_pending_review) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.922s
+
+OK

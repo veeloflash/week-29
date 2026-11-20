@@ -1,0 +1,112 @@
+[
+  {
+    "checksum": "7bdb22a33be0a0a1c96a124f7ce40be49c94326d558a10ed779e03f9472a18c8",
+    "content": {
+      "currency": "EUR",
+      "limits": {
+        "analyst": 0,
+        "director": 5000,
+        "manager": 2000
+      }
+    },
+    "effective_date": "2026-01-01",
+    "id": "approval-policy",
+    "ingested_at": "2026-11-20T19:51:21.006783+00:00",
+    "kind": "policy",
+    "source": "Finance approved policy register",
+    "status": "superseded",
+    "updated_by": "admin",
+    "version": 1
+  },
+  {
+    "checksum": "c985c5ae9d4420a33ec7e93837d4b932d3530e6c221a70ae22321d0a31b88bc0",
+    "content": {
+      "currency": "EUR",
+      "limits": {
+        "analyst": 0,
+        "director": 5000,
+        "manager": 1000
+      }
+    },
+    "effective_date": "2026-11-01",
+    "id": "approval-policy",
+    "ingested_at": "2026-11-20T19:51:21.006783+00:00",
+    "kind": "policy",
+    "source": "Finance approved policy register",
+    "status": "current",
+    "updated_by": "admin",
+    "version": 2
+  },
+  {
+    "checksum": "53451f9ef7c0a6c6f36c061e0a807841c5c93c265a5c4759c23b4514ec9b1886",
+    "content": {
+      "currency": "EUR",
+      "limits": {
+        "analyst": 0,
+        "director": 5000,
+        "manager": 7000
+      }
+    },
+    "effective_date": "2026-11-01",
+    "id": "conflicting-policy",
+    "ingested_at": "2026-11-20T19:51:21.056918+00:00",
+    "kind": "policy",
+    "source": "Finance approved policy register",
+    "status": "current",
+    "updated_by": "admin",
+    "version": 1
+  },
+  {
+    "checksum": "17e48c5e6294dbee7ab3ef72cfe9fd352a0f1539aed86a397f8d7c8b653fb400",
+    "content": {
+      "Employee A": {
+        "department": "operations",
+        "role": "manager"
+      },
+      "Employee B": {
+        "department": "operations",
+        "role": "director"
+      },
+      "Employee C": {
+        "department": "finance",
+        "role": "analyst"
+      }
+    },
+    "effective_date": "2026-01-01",
+    "id": "employees",
+    "ingested_at": "2026-11-20T19:51:21.006783+00:00",
+    "kind": "employees",
+    "source": "HR employee directory",
+    "status": "current",
+    "updated_by": "admin",
+    "version": 1
+  },
+  {
+    "checksum": "44aa2763377ae50a19612db9bb5b1d6f9667521615b228389ecccee2cf2bb51a",
+    "content": {
+      "Expense X": {
+        "amount": 1500,
+        "category": "travel",
+        "currency": "EUR"
+      },
+      "Expense Y": {
+        "amount": 450,
+        "category": "equipment",
+        "currency": "EUR"
+      },
+      "Expense Z": {
+        "amount": 3500,
+        "category": "travel",
+        "currency": "EUR"
+      }
+    },
+    "effective_date": "2026-01-01",
+    "id": "expenses",
+    "ingested_at": "2026-11-20T19:51:21.006783+00:00",
+    "kind": "expenses",
+    "source": "Finance expense ledger",
+    "status": "current",
+    "updated_by": "admin",
+    "version": 1
+  }
+]
