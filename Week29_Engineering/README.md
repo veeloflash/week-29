@@ -4,7 +4,7 @@ I built the policy-change scenario from the learning plan. The assistant follows
 
 ## Run
 
-Open PowerShell in this folder and run:
+Open PowerShell, use cd to convert the workspace in this folder and run:
 
 ```powershell
 .\run.ps1
